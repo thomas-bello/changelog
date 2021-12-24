@@ -40,3 +40,34 @@ npm i -g gitmoji-cli
 # 或者
 brew install gitmoji
 ```
+
+下载后先运行一下
+
+```bash
+gitmoji -i # 初始化 gitmoji 
+gitmoji -g # 设置 gitmoji 的规则，自动 'git add .'，不需要signed commits，提示scope的填写
+? Enable automatic "git add ." Yes
+? Select how emojis should be used in commits :smile:
+? Enable signed commits No
+? Enable scope prompt Yes
+? Set gitmojis api url https://gitmoji.dev/api/gitmojis
+```
+
+#### 常见异常
+
+```bash
+error: cannot run gpg: No such file or directory
+error: gpg 数据签名失败
+fatal: 写提交对象失败
+```
+
+这个一般是你设置了 `Enable signed commits` 为 `yes` ，可以通过运行 `gitmoji -g` 来设置
+
+```bash
+gitmoji -g
+? Enable automatic "git add ." Yes
+? Select how emojis should be used in commits :smile:
+? Enable signed commits No
+? Enable scope prompt Yes
+? Set gitmojis api url https://gitmoji.dev/api/gitmojis
+```
