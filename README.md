@@ -25,7 +25,12 @@ footer?
 
 ### 可以更方便写出以上要求的git commit 工具
 
-VSCode Gitmoji 插件
+#### VSCode Gitmoji 插件
+
+[benjaminadk.emojis4git](https://github.com/benjaminadk/emojigit)
+
+已经添加到本项目的[推荐插件](/.vscode/extensions.json)
+
 
 
 
