@@ -1,0 +1,19 @@
+{
+  "name": "changelog",
+  "version": "1.0.0",
+  "description": "自动生成changelog的示例",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomas-bello/changelog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomas-bello/changelog/issues"
+  },
+  "homepage": "https://github.com/thomas-bello/changelog#readme"
+}
