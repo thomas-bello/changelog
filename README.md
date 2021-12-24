@@ -27,10 +27,17 @@ footer?
 
 #### VSCode Gitmoji 插件
 
-[benjaminadk.emojis4git](https://github.com/benjaminadk/emojigit)
+[seatonjiang.gitmoji-vscode](https://github.com/seatonjiang/gitmoji-vscode)
 
 已经添加到本项目的[推荐插件](/.vscode/extensions.json)
 
+```json
+{
+    "recommendations": [
+        "seatonjiang.gitmoji-vscode"
+    ]
+}
+```
 
 
 
