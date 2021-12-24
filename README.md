@@ -45,10 +45,10 @@ brew install gitmoji
 
 ```bash
 gitmoji -i # 初始化 gitmoji 
-gitmoji -g # 设置 gitmoji 的规则，自动 'git add .'，不需要signed commits，提示scope的填写
+gitmoji -g # 设置 gitmoji 的规则，自动 'git add .'，signed commits，提示scope的填写
 ? Enable automatic "git add ." Yes
 ? Select how emojis should be used in commits :smile:
-? Enable signed commits No
+? Enable signed commits Yes
 ? Enable scope prompt Yes
 ? Set gitmojis api url https://gitmoji.dev/api/gitmojis
 ```
