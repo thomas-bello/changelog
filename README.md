@@ -94,8 +94,22 @@ gitmoji -g
 
 ![commitlint](https://commitlint.js.org/assets/commitlint.svg)
 
-
 ```bash
 # 使用npm管理依赖的项目
 yarn add -D commitlint-config-gitmoji commitlint husky
+```
+
+然后在 [package.json](package.json) 内添加
+
+```json
+{
+  "commitlint": {
+    "extends": ["gitmoji"]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  }
+}
 ```

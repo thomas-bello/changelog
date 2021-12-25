@@ -15,5 +15,18 @@
   "bugs": {
     "url": "https://github.com/thomas-bello/changelog/issues"
   },
-  "homepage": "https://github.com/thomas-bello/changelog#readme"
+  "homepage": "https://github.com/thomas-bello/changelog#readme",
+  "devDependencies": {
+    "commitlint": "^15.0.0",
+    "commitlint-config-gitmoji": "^2.2.5",
+    "husky": "^7.0.4"
+  },
+  "commitlint": {
+    "extends": ["gitmoji"]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  }
 }
