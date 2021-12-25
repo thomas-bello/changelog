@@ -2,7 +2,7 @@
 
 自动生成changelog的示例
 
-## git commit
+## Git commit
 
 如果需要自动生成有效的changelog，我们必须有规范的 `git commit`
 
@@ -29,6 +29,8 @@ footer?
 
 [seatonjiang.gitmoji-vscode](https://github.com/seatonjiang/gitmoji-vscode)
 
+![seatonjiang.gitmoji-vscode](https://cdn.jsdelivr.net/gh/seatonjiang/gitmoji-vscode@main/images/about.gif)
+
 已经添加到本项目的[推荐插件](/.vscode/extensions.json)
 
 ```json
@@ -39,7 +41,7 @@ footer?
 }
 ```
 
-
+注意这种方法只会提供 `subject` 的填写，更详细的 `body` 内容需要命令行工具。
 
 #### 命令行工具
 
@@ -82,4 +84,18 @@ gitmoji -g
 ? Enable signed commits No
 ? Enable scope prompt Yes
 ? Set gitmojis api url https://gitmoji.dev/api/gitmojis
+```
+
+## Commitlint
+
+如果要每个人都非常自觉的按照约定格式提交 commit 信息，那是不可能的事情。所以需要工具的配合
+
+通过 [commitlint](https://github.com/conventional-changelog/commitlint) + [husky](https://github.com/typicode/husky) 来对git提交的生命周期挟持来做commit信息的校验
+
+![commitlint](https://commitlint.js.org/assets/commitlint.svg)
+
+
+```bash
+# 使用npm管理依赖的项目
+yarn add -D commitlint-config-gitmoji commitlint husky
 ```
