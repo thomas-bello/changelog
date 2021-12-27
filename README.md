@@ -105,11 +105,16 @@ yarn add -D commitlint-config-gitmoji commitlint husky
 {
   "commitlint": {
     "extends": ["gitmoji"]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
-    }
   }
 }
 ```
+
+```bash
+# 添加 husky 环境
+yarn husky install
+
+# 添加 commit-msg 时需要运行的命令
+yarn husky add .husky/commit-msg 'yarn commitlint --edit $1'
+```
+
+运行完后会多了一个文件 [.husky/commit-msg](.husky/commit-msg)
