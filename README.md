@@ -182,7 +182,7 @@ Footer
 11. 在 Body 中说明「是什么」、「为什么」与「怎么做」
 12. 所有的 WIP ( Work In Progress ) Commits 必须要有 WIP 的 Emoji
 
-#### 关于commit信息中的换行
+### 关于commit信息中的换行
 
 ```bash
 # 正常提交
@@ -194,4 +194,5 @@ dquote> 这是footer"
 ```
 
 只要 `-m` 后带`"` 开头，就必须要带有 `"` 结尾，这个时候在控制台就可以直接回车换行
+
 
