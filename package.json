@@ -4,7 +4,8 @@
   "description": "自动生成changelog的示例",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,9 @@
   "devDependencies": {
     "commitlint": "^15.0.0",
     "commitlint-config-gitmoji": "^2.2.5",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "semantic-release": "^17.3.3",
+    "semantic-release-config-gitmoji": "^1.2.1"
   },
   "commitlint": {
     "extends": [
