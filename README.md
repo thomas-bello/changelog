@@ -195,4 +195,9 @@ dquote> 这是footer"
 
 只要 `-m` 后带`"` 开头，就必须要带有 `"` 结尾，这个时候在控制台就可以直接回车换行
 
+在vscode的 source control中就直接回车留出空行就好了
+
+![vscode的 source control中](img/vscode_msg1.png)
+
+
 
