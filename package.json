@@ -22,7 +22,9 @@
     "husky": "^7.0.4"
   },
   "commitlint": {
-    "extends": ["gitmoji"]
+    "extends": [
+      "gitmoji"
+    ]
   },
   "husky": {
     "hooks": {
