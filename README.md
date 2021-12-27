@@ -181,3 +181,6 @@ Footer
 10. 使用祈使句语法。（ "Move cursor to…" 而不是  "Moves cursor to…"）
 11. 在 Body 中说明「是什么」、「为什么」与「怎么做」
 12. 所有的 WIP ( Work In Progress ) Commits 必须要有 WIP 的 Emoji
+
+#### 关于commit信息中的换行
+
