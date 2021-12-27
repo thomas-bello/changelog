@@ -184,3 +184,14 @@ Footer
 
 #### 关于commit信息中的换行
 
+```bash
+# 正常提交
+git commit -m ":memo: docs: 试试换行
+dquote>
+dquote> 这是body
+dquote>
+dquote> 这是footer"
+```
+
+只要 `-m` 后带`"` 开头，就必须要带有 `"` 结尾，这个时候在控制台就可以直接回车换行
+
