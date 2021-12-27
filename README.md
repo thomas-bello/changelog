@@ -67,25 +67,6 @@ gitmoji -g # 设置 gitmoji 的规则，自动 'git add .'，signed commits，�
 ? Set gitmojis api url https://gitmoji.dev/api/gitmojis
 ```
 
-#### 常见异常
-
-```bash
-error: cannot run gpg: No such file or directory
-error: gpg 数据签名失败
-fatal: 写提交对象失败
-```
-
-这个一般是你设置了 `Enable signed commits` 为 `yes`，可以通过运行 `gitmoji -g` 来设置为 `No`，不过这样在github 上的commit信息就只有你的名字不能点击跳到你的主页。
-
-```bash
-gitmoji -g
-? Enable automatic "git add ." Yes
-? Select how emojis should be used in commits :smile:
-? Enable signed commits No
-? Enable scope prompt No
-? Set gitmojis api url https://gitmoji.dev/api/gitmojis
-```
-
 ## Commitlint
 
 如果要每个人都非常自觉的按照约定格式提交 commit 信息，那是不可能的事情。所以需要工具的配合
@@ -200,5 +181,82 @@ dquote> 这是footer"
 
 ![vscode的 source control中](img/vscode_msg1.png)
 
+## Change log
+
+有了相对规范的提交信息后，我们就可以生成相对有意义的 change log 来记录我们的项目变更。
+
+这个我们可以使用 [conventional-changelog-cli](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-cli) 
+
+```bash
+# 全局安装
+npm install -g conventional-changelog-cli
+
+# 生成 CHANGELOG
+conventional-changelog -p angular -i CHANGELOG.md -s
+```
+
+- `-p angular` 用来指定使用的 commit message 标准
+- `-i CHANGELOG.md` 表示从 CHANGELOG.md 读取 changelog
+- `-s` 表示读写 changelog 为同一文件
+
+可以发现使用 `angular` 的标准来生成是一个只有标题的文件，因为本项目一直都是通过 `gitmoji-config` 的来做提交，所以不能提取到对应的信息
+
+```bash
+# 使用 gitmoji-config 标准
+conventional-changelog -p gitmoji-config -i CHANGELOG.md -s
+```
+
+这个时候可以看到 [CHANGELOG.md](CHANGELOG.md) 文件生成了
 
 
+
+## 常见错误
+
+### gitmoji-cli 提交时 error: cannot run gpg: No such file or directory
+
+```bash
+error: cannot run gpg: No such file or directory
+error: gpg 数据签名失败
+fatal: 写提交对象失败
+```
+
+这个一般是你设置了 `Enable signed commits` 为 `yes`，可以通过运行 `gitmoji -g` 来设置为 `No`，不过这样在github 上的commit信息就只有你的名字不能点击跳到你的主页。
+
+```bash
+gitmoji -g
+? Enable automatic "git add ." Yes
+? Select how emojis should be used in commits :smile:
+? Enable signed commits No
+? Enable scope prompt No
+? Set gitmojis api url https://gitmoji.dev/api/gitmojis
+```
+
+### semantic-release 运行时 ✖  ERELEASEBRANCHES The release branches are invalid in the `branches` configuration.
+
+```bash
+✖  ERELEASEBRANCHES The release branches are invalid in the `branches` configuration.
+A minimum of 1 and a maximum of 3 release branches are required in the branches configuration.
+
+This may occur if your repository does not have a release branch, such as master.
+
+Your configuration for the problematic branches is [].
+
+AggregateError:
+    SemanticReleaseError: The release branches are invalid in the `branches` configuration.
+        at module.exports (/Users/thomaslau/Projects/changelog/node_modules/semantic-release/lib/get-error.js:6:10)
+        at /Users/thomaslau/Projects/changelog/node_modules/semantic-release/lib/branches/index.js:44:19
+        at Array.reduce (<anonymous>)
+        at module.exports (/Users/thomaslau/Projects/changelog/node_modules/semantic-release/lib/branches/index.js:34:46)
+        at async run (/Users/thomaslau/Projects/changelog/node_modules/semantic-release/index.js:57:22)
+        at async module.exports (/Users/thomaslau/Projects/changelog/node_modules/semantic-release/index.js:260:22)
+        at async module.exports (/Users/thomaslau/Projects/changelog/node_modules/semantic-release/cli.js:55:5)
+    at module.exports (/Users/thomaslau/Projects/changelog/node_modules/semantic-release/lib/branches/index.js:66:11)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async run (/Users/thomaslau/Projects/changelog/node_modules/semantic-release/index.js:57:22)
+    at async module.exports (/Users/thomaslau/Projects/changelog/node_modules/semantic-release/index.js:260:22)
+error Command failed with exit code 1.
+```
+
+这个一般是你的项目的分支规则和 `semantic-release` 的[默认规则](https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches)不符，通常是目前新的GitHub仓库默认主分支名变成了 `main` 的原因。
+
+可以在自己配置 [.releaserc.js](.releaserc.js) 的 `branches`
