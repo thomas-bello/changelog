@@ -208,7 +208,6 @@ conventional-changelog -p gitmoji-config -i CHANGELOG.md -s
 
 这个时候可以看到 [CHANGELOG.md](CHANGELOG.md) 文件生成了
 
-
 ## 常见错误
 
 ### gitmoji-cli 提交时 error: cannot run gpg: No such file or directory
