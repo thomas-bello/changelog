@@ -80,15 +80,20 @@ gitmoji -g # 设置 gitmoji 的规则，自动 'git add .'，signed commits，�
 yarn add -D commitlint-config-gitmoji commitlint husky
 ```
 
-然后在 [package.json](package.json) 内添加
+然后在在根目录上新建 [.commitlintrc.js](.commitlintrc.js) 
 
-```json
-{
-  "commitlint": {
-    "extends": ["gitmoji"]
-  }
+```js
+module.exports = {
+  extends: [
+    "gitmoji"
+  ]
 }
 ```
+
+如果需要自定义 commitlint 规则，可以 [.commitlintrc.js](.commitlintrc.js) 上添加对应的 [rules](https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md)
+
+目前在用的 [commitlint-config-gitmoji 的规则](https://github.com/arvinxx/gitmoji-commit-workflow/blob/master/packages/commitlint-config/src/index.ts)
+
 
 ```bash
 # 添加 husky 环境
@@ -180,6 +185,9 @@ dquote> 这是footer"
 在vscode的 source control中就直接回车留出空行就好了
 
 ![vscode的 source control中](img/vscode_msg1.png)
+
+
+
 
 ## Change log
 
